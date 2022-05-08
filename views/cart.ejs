@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Elements added to the body -->
+    <meta name="viewport" content="with=device-width, initial scale=1.0">
+    <title>Shopper-The Shopping Friendly App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img id="MDB-logo"
+                        src="https://mdbcdn.b-cdn.net/wp-content/uploads/2018/06/logo-mdb-jquery-small.png" alt="Logo"
+                        draggable="false" height="30" /></a>
+
+                <form action="/" method="post">
+                    <input class="form-control login" style="width: 500px;" name="search" type="text"
+                        placeholder="Search by category" aria-label="Search">
+                </form>
+
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center me-3" href="/cart">
+                            <i class="fas fa-cart-arrow-down pe-2"></i>
+                        </a>
+                    </li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Login</button>
+                        <div class="dropdown-content">
+                            <a href="register.html">Login as Customer</a>
+                            <a href="logintrader.html">Login as trader</a>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="header">
+            <nav>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="fruits.html">FRUITS & VEGETABLES</a> </li>
+                        <li><a href="dairys.html">DAIRY & BAKERY</a></li>
+                        <li><a href="staples.html">STAPLES</a></li>
+                        <li><a href="mens.html">MENS & WOMENS</a></li>
+                        <li><a href="cloths.html">BOYS & GIRLS</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+
+
+
+        </section>
+    </div>
+    <div style="margin-left:10px;">
+     <h2>Items in my Cart :</h2>
+     
+     <% items.forEach(element => {%>
+       Item Name: <%= element.name %><br>
+       Item Price: <%= element.price %><br>
+       Seller Name:<%= element.trade %><br><br>
+        <% });%>
+    
+    <form method="post" action="/cart">
+        <input
+        class="form-control"
+        id="formControlDisabled"
+        type="text"
+        placeholder="Enter Item to Add"
+        name="items"
+        style="width:5cm;margin-bottom:3px;"
+      />
+    
+      <input
+      class="form-control"
+      id="formControlDisabled"
+      type="text"
+      placeholder="Enter your Name"
+      name="price"
+      style="width:5cm;margin-bottom:3px;"
+    />
+    <input
+    class="form-control"
+    id="formControlDisabled"
+    type="text"
+    placeholder="Enter Trader Name"
+    name="name"
+    style="width:5cm;margin-bottom:3px;"
+  />
+    
+    <button type="submit" class="btn btn-danger btn-rounded" style="margin-top:8px;">Add More Items</button>
+    </form>
+
+    <form action="/create-checkout-session" method="post">
+        <input
+        class="form-control"
+        id="formControlDisabled"
+        type="text"
+        placeholder="Enter Total Amount"
+        name="item"
+        style="width:5cm;margin-bottom:3px;margin-top:9px;"
+      />        
+ <button type="submit" class="btn btn-danger btn-rounded" style="margin-top:8px;">Buy Cart</button>
+    </form>
+ </div>
+
+
+
+
+</body>
+
+</html>
